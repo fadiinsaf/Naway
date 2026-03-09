@@ -163,7 +163,7 @@ php artisan migrate
 php artisan db:seed
 ```
 
-### 3. Run the Application
+### 5. Run the Application
 
 Start the local development server:
 
