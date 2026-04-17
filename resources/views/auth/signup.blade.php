@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Naway</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.svg') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/naway-fav.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap"
         rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -23,6 +24,10 @@
                         accent: '#8C5A3C',
                         darkbg: '#4B2E2B',
                         soft: '#FFF8F0'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'Cairo', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
                     }
                 }
             }
@@ -36,7 +41,7 @@
         }
 
         body {
-            font-family: 'IBM Plex Sans', 'IBM Plex Sans Arabic', sans-serif;
+            font-family: 'Outfit', 'Cairo', sans-serif;
         }
     </style>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -48,7 +53,7 @@
 
         <div class="absolute top-6 left-6 z-10">
             <a href="/home"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 text-primary rounded-lg transition font-semibold text-sm">
+                class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition font-semibold text-sm backdrop-blur-md border border-primary/20">
                 <i class="fa-solid fa-arrow-left"></i> Back to Home
             </a>
         </div>
@@ -59,10 +64,10 @@
                 <div class="w-full max-w-md">
 
                     <div class="mb-10">
-                        <h1 class="text-4xl md:text-5xl font-bold text-accent dark:text-soft mb-3">
+                        <h1 class="text-4xl md:text-5xl font-bold text-accent dark:text-soft mb-3 tracking-tight">
                             Join Naway
                         </h1>
-                        <p class="text-accent/60 dark:text-soft/60 text-lg">
+                        <p class="font-serif text-accent/60 dark:text-soft/60 text-lg">
                             Explore the spirit of Arabic music
                         </p>
                     </div>
@@ -102,7 +107,7 @@
 
                         <label class="flex items-start gap-3 cursor-pointer">
                             <input type="checkbox" class="w-4 h-4 rounded accent-primary mt-1">
-                            <span class="text-sm text-accent dark:text-soft leading-relaxed">
+                            <span class="text-sm font-medium text-accent dark:text-soft leading-relaxed">
                                 I agree to the
                                 <a href="#" class="text-primary hover:text-accent font-semibold transition">Terms of
                                     Service</a>
@@ -113,7 +118,7 @@
                         </label>
 
                         <button type="submit"
-                            class="w-full bg-primary hover:bg-accent text-soft py-3 rounded-lg font-bold transition mt-8 text-base">
+                            class="w-full bg-primary hover:bg-accent text-soft py-3 rounded-lg font-bold transition mt-8 text-base shadow-lg shadow-primary/20 tracking-wide">
                             Create account
                         </button>
 
@@ -122,7 +127,9 @@
                                 <div class="w-full border-t border-primary/20"></div>
                             </div>
                             <div class="relative flex justify-center text-xs">
-                                <span class="px-3 bg-soft dark:bg-darkbg text-accent/50">Or sign up with</span>
+                                <span
+                                    class="px-3 bg-soft dark:bg-darkbg font-medium text-accent/50 uppercase tracking-wider">Or
+                                    sign up with</span>
                             </div>
                         </div>
 
@@ -142,17 +149,37 @@
                         </button>
                     </form>
 
-                    <p class="text-center mt-8 text-accent dark:text-soft">
+                    <p class="font-serif text-center mt-8 text-accent dark:text-soft text-lg">
                         Already have an account?
-                        <a href="/signin" class="text-primary hover:text-accent font-bold transition">
+                        <a href="/signin" class="font-sans text-primary hover:text-accent font-bold transition">
                             Sign in
                         </a>
                     </p>
                 </div>
             </div>
 
-            <div class="hidden lg:flex items-center justify-center relative overflow-hidden p-8 bg-no-repeat bg-cover bg-center"
+            <div class="hidden lg:flex flex-col justify-end relative overflow-hidden p-12 xl:p-16 bg-no-repeat bg-cover bg-center"
                 style="background-image: url('{{ asset('uploads/violin.jpg') }}');">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+
+                <div class="relative z-20 text-soft max-w-xl">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-widest mb-4 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        Authentic Sounds
+                    </div>
+
+                    <h2
+                        class="text-4xl xl:text-5xl font-bold mb-4 leading-tight text-white tracking-tight">
+                        Discover the <span class="text-primary">Instruments</span>
+                    </h2>
+
+                    <p class="font-serif text-xl text-white/90 leading-relaxed ">
+                        From the deep resonance of the Oud to the soul-stirring vibrato of the Violin. Explore the
+                        traditional instruments that bring classical Arabic music to life
+                    </p>
+                </div>
             </div>
 
         </div>
