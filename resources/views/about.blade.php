@@ -105,11 +105,11 @@
                             <span class="w-2 h-2 rounded-full bg-primary"></span>
                             Lead Developer & Founder
                         </div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-accent dark:text-soft mb-4">Behind the Code</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-accent dark:text-soft mb-4">Fadi Insaf</h2>
                         <p class="text-lg text-accent/80 dark:text-soft/80 mb-6 leading-relaxed">
                             I built Naway because I struggled to find a clean, modern resource to learn the subtle
                             differences between Maqam Bayati and Maqam Saba. What started as a personal index grew into a
-                            passion project to bridge modern web development with ancient musical theory.
+                            passion project to bridge modern web development with ancient musical theory
                         </p>
                         <div class="flex flex-wrap justify-center md:justify-start gap-3">
                             <a href="https://www.instagram.com/Naway/"
