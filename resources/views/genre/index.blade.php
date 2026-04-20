@@ -3,38 +3,38 @@
 @section('title', 'Genres')
 
 @section('sidebar_title')
-    ≡ Genre Index
+    <i class="fa-solid fa-bars"></i> Genre Index
 @endsection
 
 @section('sidebar_nav')
     <nav class="p-4 space-y-1" x-data>
         <button @click="$parent.activeItem = 'classical'" :class="$parent.activeItem === 'classical' || $parent.activeItem === '' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎭 Classical
+            <i class="fa-solid fa-masks-theater"></i> Classical
         </button>
         <button @click="$parent.activeItem = 'pop'" :class="$parent.activeItem === 'pop' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎤 Pop
+            <i class="fa-solid fa-microphone"></i> Pop
         </button>
         <button @click="$parent.activeItem = 'folk'" :class="$parent.activeItem === 'folk' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎸 Folk
+            <i class="fa-solid fa-guitar"></i> Folk
         </button>
         <button @click="$parent.activeItem = 'jazz'" :class="$parent.activeItem === 'jazz' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎺 Jazz
+            <i class="fa-solid fa-trumpet"></i> Jazz
         </button>
         <button @click="$parent.activeItem = 'sufi'" :class="$parent.activeItem === 'sufi' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🕯️ Sufi
+            <i class="fa-solid fa-fire"></i> Sufi
         </button>
         <button @click="$parent.activeItem = 'fusion'" :class="$parent.activeItem === 'fusion' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🔗 Fusion
+            <i class="fa-solid fa-link"></i> Fusion
         </button>
         <button @click="$parent.activeItem = 'bellydance'" :class="$parent.activeItem === 'bellydance' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            💃 Belly Dance
+            <i class="fa-solid fa-person-walking"></i> Belly Dance
         </button>
     </nav>
 @endsection
@@ -54,7 +54,7 @@
 
             <!-- Audio Player -->
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Classical Masterpieces</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Classical Masterpieces</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Umm Kulthum - "Enta Omri"</p>
@@ -105,7 +105,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Pop Hits</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Pop Hits</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Nancy Ajram - Modern Pop</p>
@@ -129,7 +129,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Folk Traditions</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Folk Traditions</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Egyptian Baladi - Urban Folk</p>
@@ -153,7 +153,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Jazz Fusion</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Jazz Fusion</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Anouar Brahem - Oud Jazz</p>
@@ -177,7 +177,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Sufi Chants</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Sufi Chants</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Qawwali - Divine Chanting</p>
@@ -201,7 +201,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Fusion Sounds</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Fusion Sounds</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Dina El Wedidi - Electronic Fusion</p>
@@ -225,7 +225,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">💃 Belly Dance Rhythms</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-person-walking"></i> Belly Dance Rhythms</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Maqsum Belly Dance</p>

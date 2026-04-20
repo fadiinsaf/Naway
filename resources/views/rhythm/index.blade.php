@@ -3,38 +3,38 @@
 @section('title', 'Rhythms')
 
 @section('sidebar_title')
-    ≡ Rhythm Index
+    <i class="fa-solid fa-bars"></i> Rhythm Index
 @endsection
 
 @section('sidebar_nav')
     <nav class="p-4 space-y-1" x-data>
         <button @click="$parent.activeItem = 'doum'" :class="$parent.activeItem === 'doum' || $parent.activeItem === '' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🥁 Doum
+            <i class="fa-solid fa-drum"></i> Doum
         </button>
         <button @click="$parent.activeItem = 'tak'" :class="$parent.activeItem === 'tak' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🥁 Tak
+            <i class="fa-solid fa-drum"></i> Tak
         </button>
         <button @click="$parent.activeItem = 'maqsum'" :class="$parent.activeItem === 'maqsum' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🥁 Maqsum
+            <i class="fa-solid fa-drum"></i> Maqsum
         </button>
         <button @click="$parent.activeItem = 'ayub'" :class="$parent.activeItem === 'ayub' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🥁 Ayub
+            <i class="fa-solid fa-drum"></i> Ayub
         </button>
         <button @click="$parent.activeItem = 'baladi'" :class="$parent.activeItem === 'baladi' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🥁 Baladi
+            <i class="fa-solid fa-drum"></i> Baladi
         </button>
         <button @click="$parent.activeItem = 'saidi'" :class="$parent.activeItem === 'saidi' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🥁 Saidi
+            <i class="fa-solid fa-drum"></i> Saidi
         </button>
         <button @click="$parent.activeItem = 'wahhadi'" :class="$parent.activeItem === 'wahhadi' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🥁 Wahhadi
+            <i class="fa-solid fa-drum"></i> Wahhadi
         </button>
     </nav>
 @endsection
@@ -42,7 +42,7 @@
 @section('content')
     <div x-data="{ activeItem: 'doum' }">
         <div x-show="activeItem === 'doum'" x-transition class="space-y-6">
-            <h1 class="text-4xl font-bold text-accent dark:text-soft">🥁 Doum</h1>
+            <h1 class="text-4xl font-bold text-accent dark:text-soft"><i class="fa-solid fa-drum"></i> Doum</h1>
             <p class="text-lg text-primary font-semibold">The Deep Bass Sound</p>
 
             <div class="bg-primary/10 border-l-4 border-primary rounded p-6">
@@ -73,7 +73,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Doum</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Doum</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Doum Sound Sample</p>
@@ -86,7 +86,7 @@
         </div>
 
         <div x-show="activeItem === 'tak'" x-transition class="space-y-6">
-            <h1 class="text-4xl font-bold text-accent dark:text-soft">🥁 Tak</h1>
+            <h1 class="text-4xl font-bold text-accent dark:text-soft"><i class="fa-solid fa-drum"></i> Tak</h1>
             <p class="text-lg text-primary font-semibold">The Sharp Strike Sound</p>
 
             <div class="bg-primary/10 border-l-4 border-primary rounded p-6">
@@ -96,7 +96,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Tak</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Tak</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Tak Sound Sample</p>
@@ -109,7 +109,7 @@
         </div>
 
         <div x-show="activeItem === 'maqsum'" x-transition class="space-y-6">
-            <h1 class="text-4xl font-bold text-accent dark:text-soft">🥁 Maqsum</h1>
+            <h1 class="text-4xl font-bold text-accent dark:text-soft"><i class="fa-solid fa-drum"></i> Maqsum</h1>
             <p class="text-lg text-primary font-semibold">The Classic Rhythm Pattern</p>
 
             <div class="bg-primary/10 border-l-4 border-primary rounded p-6">
@@ -140,7 +140,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Maqsum</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Maqsum</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Maqsum Full Rhythm</p>
@@ -160,7 +160,7 @@
         </div>
 
         <div x-show="activeItem === 'ayub'" x-transition class="space-y-6">
-            <h1 class="text-4xl font-bold text-accent dark:text-soft">🥁 Ayub</h1>
+            <h1 class="text-4xl font-bold text-accent dark:text-soft"><i class="fa-solid fa-drum"></i> Ayub</h1>
             <p class="text-lg text-primary font-semibold">The Energetic Rhythm</p>
 
             <div class="bg-primary/10 border-l-4 border-primary rounded p-6">
@@ -170,7 +170,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Ayub</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Ayub</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Ayub Fast Rhythm</p>
@@ -183,7 +183,7 @@
         </div>
 
         <div x-show="activeItem === 'baladi'" x-transition class="space-y-6">
-            <h1 class="text-4xl font-bold text-accent dark:text-soft">🥁 Baladi</h1>
+            <h1 class="text-4xl font-bold text-accent dark:text-soft"><i class="fa-solid fa-drum"></i> Baladi</h1>
             <p class="text-lg text-primary font-semibold">The Folk Rhythm</p>
 
             <div class="bg-primary/10 border-l-4 border-primary rounded p-6">
@@ -193,7 +193,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Baladi</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Baladi</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Baladi Folk Rhythm</p>
@@ -206,7 +206,7 @@
         </div>
 
         <div x-show="activeItem === 'saidi'" x-transition class="space-y-6">
-            <h1 class="text-4xl font-bold text-accent dark:text-soft">🥁 Saidi</h1>
+            <h1 class="text-4xl font-bold text-accent dark:text-soft"><i class="fa-solid fa-drum"></i> Saidi</h1>
             <p class="text-lg text-primary font-semibold">The Upper Egyptian Rhythm</p>
 
             <div class="bg-primary/10 border-l-4 border-primary rounded p-6">
@@ -216,7 +216,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Saidi</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Saidi</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Saidi Upper Egyptian</p>
@@ -229,7 +229,7 @@
         </div>
 
         <div x-show="activeItem === 'wahhadi'" x-transition class="space-y-6">
-            <h1 class="text-4xl font-bold text-accent dark:text-soft">🥁 Wahhadi</h1>
+            <h1 class="text-4xl font-bold text-accent dark:text-soft"><i class="fa-solid fa-drum"></i> Wahhadi</h1>
             <p class="text-lg text-primary font-semibold">The Bedouin Desert Rhythm</p>
 
             <div class="bg-primary/10 border-l-4 border-primary rounded p-6">
@@ -239,7 +239,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Wahhadi</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Wahhadi</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Wahhadi Bedouin Rhythm</p>

@@ -3,42 +3,42 @@
 @section('title', 'Maqams')
 
 @section('sidebar_title')
-    ≡ Maqam Index
+    <i class="fa-solid fa-bars"></i> Maqam Index
 @endsection
 
 @section('sidebar_nav')
     <nav class="p-4 space-y-1 h-full overflow-y-auto" x-data>
         <button @click="$parent.activeItem = 'bayati'" :class="$parent.activeItem === 'bayati' || $parent.activeItem === '' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎵 Bayati
+            <i class="fa-solid fa-music"></i> Bayati
         </button>
         <button @click="$parent.activeItem = 'rast'" :class="$parent.activeItem === 'rast' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎵 Rast
+            <i class="fa-solid fa-music"></i> Rast
         </button>
         <button @click="$parent.activeItem = 'hijaz'" :class="$parent.activeItem === 'hijaz' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎵 Hijaz
+            <i class="fa-solid fa-music"></i> Hijaz
         </button>
         <button @click="$parent.activeItem = 'kurd'" :class="$parent.activeItem === 'kurd' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎵 Kurd
+            <i class="fa-solid fa-music"></i> Kurd
         </button>
         <button @click="$parent.activeItem = 'nahawand'" :class="$parent.activeItem === 'nahawand' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎵 Nahawand
+            <i class="fa-solid fa-music"></i> Nahawand
         </button>
         <button @click="$parent.activeItem = 'saba'" :class="$parent.activeItem === 'saba' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎵 Saba
+            <i class="fa-solid fa-music"></i> Saba
         </button>
         <button @click="$parent.activeItem = 'sikah'" :class="$parent.activeItem === 'sikah' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎵 Sikah
+            <i class="fa-solid fa-music"></i> Sikah
         </button>
         <button @click="$parent.activeItem = 'ajam'" :class="$parent.activeItem === 'ajam' ? 'bg-primary text-soft' : 'text-soft/70 hover:text-soft hover:bg-primary/20'"
             class="w-full text-left px-4 py-3 rounded-lg transition font-semibold text-sm">
-            🎵 Ajam
+            <i class="fa-solid fa-music"></i> Ajam
         </button>
     </nav>
 @endsection
@@ -86,7 +86,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Bayati</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Bayati</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Umm Kulthum - "Enta Omri"</p>
@@ -136,7 +136,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Rast</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Rast</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Sabah Fakhri - Rast Classical</p>
@@ -159,7 +159,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Hijaz</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Hijaz</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Fairuz - Hijaz Classic</p>
@@ -182,7 +182,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Kurd</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Kurd</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Umm Kulthum - Kurd Classical</p>
@@ -205,7 +205,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Nahawand</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Nahawand</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Fairuz - Nahawand Romance</p>
@@ -228,7 +228,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Saba</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Saba</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Umm Kulthum - Saba Masterpiece</p>
@@ -251,7 +251,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Sikah</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Sikah</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Sabah Fakhri - Sikah Grand</p>
@@ -274,7 +274,7 @@
             </div>
 
             <div class="bg-primary/20 border border-primary/40 rounded-lg p-6">
-                <h3 class="font-bold text-accent dark:text-soft mb-4">🎵 Listen to Ajam</h3>
+                <h3 class="font-bold text-accent dark:text-soft mb-4"><i class="fa-solid fa-music"></i> Listen to Ajam</h3>
                 <div class="space-y-4">
                     <div class="bg-soft dark:bg-darkbg rounded-lg p-4">
                         <p class="text-sm font-semibold text-accent dark:text-soft mb-2">Mohammed Abdo - Ajam Joy</p>

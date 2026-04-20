@@ -30,16 +30,15 @@
             <li><a href="/about" class="px-4 h-11 flex items-center hover:bg-primary/25 transition">About</a></li>
         </ul>
 
-        <div class="flex items-center gap-1" x-data="{ dark: false, profileOpen: false, isLoggedIn: false }"
-            :class="{ 'dark': dark }">
+        <div class="flex items-center gap-1">
             <button
                 class="text-xs px-2.5 py-1 border border-primary/50 text-primary rounded hover:bg-primary hover:text-soft transition font-semibold">
-                EN ▾
+                EN <i class="fa-solid fa-caret-down"></i>
             </button>
 
-            <button class="p-2 rounded hover:bg-primary/25 transition text-soft/80 hover:text-soft">
-                <span x-show="!dark">🌙</span>
-                <span x-show="dark">☀️</span>
+            <button @click="dark = !dark" class="p-2 rounded hover:bg-primary/25 transition text-soft/80 hover:text-soft">
+                <span x-show="!dark"><i class="fa-solid fa-moon"></i></span>
+                <span x-show="dark"><i class="fa-solid fa-sun"></i></span>
             </button>
 
             <div x-show="!isLoggedIn" class="flex items-center gap-2 mr-2 ml-2">
@@ -55,7 +54,7 @@
 
             <div x-show="isLoggedIn" class="flex items-center gap-1">
                 <button class="relative p-2 rounded hover:bg-primary/25 transition text-soft/80 hover:text-soft">
-                    🔔
+                    <i class="fa-solid fa-bell"></i>
                     <span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-primary rounded-full"></span>
                 </button>
 
