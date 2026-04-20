@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') - Naway</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('images/naway-fav.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -68,26 +70,26 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="bg-soft dark:bg-darkbg text-accent dark:text-soft">
+<body class="bg-soft dark:bg-darkbg text-accent dark:text-soft overflow-hidden h-screen">
 
-<div class="min-h-screen flex flex-col bg-soft dark:bg-darkbg">
+<div class="h-screen flex flex-col bg-soft dark:bg-darkbg">
 
     @include('components.header')
 
     @include('components.navigation')
 
-    <div class="flex-1 flex overflow-hidden">
+    <div class="flex-1 flex overflow-hidden min-h-0">
 
-        <div class="w-80 bg-darkbg dark:bg-[#3a2220] border-r border-primary/20 flex flex-col">
-            <div class="p-6 bg-primary/80 text-soft font-bold text-lg">
+        <div class="w-80 bg-darkbg dark:bg-[#3a2220] border-r border-primary/20 flex flex-col shrink-0">
+            <div class="p-6 bg-primary/80 text-soft font-bold text-lg shrink-0">
                 @yield('sidebar_title')
             </div>
-            <div class="sidebar-scroll flex-1">
+            <div class="sidebar-scroll flex-1 overflow-y-auto min-h-0">
                 @yield('sidebar_nav')
             </div>
         </div>
 
-        <div class="flex-1 bg-soft dark:bg-darkbg content-scroll">
+        <div class="flex-1 overflow-y-auto content-scroll min-h-0 bg-soft dark:bg-darkbg">
             <div class="p-8 max-w-4xl">
                 @yield('content')
             </div>

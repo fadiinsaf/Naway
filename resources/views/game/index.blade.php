@@ -76,7 +76,7 @@
                 class="mt-8 p-6 bg-primary/10 rounded-xl border border-primary/25">
 
                 <div x-show="isCorrect">
-                    <h3 class="text-xl font-bold text-accent dark:text-soft mb-2">Spot on! 🎵</h3>
+                    <h3 class="text-xl font-bold text-accent dark:text-soft mb-2">Spot on! <i class="fa-solid fa-music"></i></h3>
                     <p class="text-sm opacity-80 mb-4">Excellent ear. That was indeed <span class="font-semibold"
                             x-text="correctAnswer"></span>.</p>
                     <button @click="level++; score += 100; hasGuessed = false; selectedOption = null"
