@@ -10,6 +10,7 @@ return new class extends Migration {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->text('content');
+            $table->boolean('approved')->default(false);
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
 
             $table->unsignedBigInteger('entity_id');
