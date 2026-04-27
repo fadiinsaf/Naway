@@ -10,6 +10,8 @@ return new class extends Migration {
         Schema::create('instruments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('type');
+            $table->text('origin');
             $table->text('historical_description')->nullable();
             $table->string('image')->nullable();
             $table->boolean('is_published')->default(true);
