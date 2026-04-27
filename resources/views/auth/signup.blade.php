@@ -12,50 +12,58 @@
         </p>
     </div>
 
-    <form class="space-y-6">
+    <form method="POST" action="{{ route('register') }}" class="space-y-6">
+        @csrf
         <div>
             <label class="block text-sm font-semibold text-accent dark:text-soft mb-3">
                 Full name
             </label>
-            <input type="text" placeholder="Enter your full name"
+            <input type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name" placeholder="Enter your full name"
                 class="w-full px-5 py-3 border border-primary/30 rounded-lg bg-soft dark:bg-darkbg text-accent dark:text-soft placeholder-primary/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition text-base">
+            <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-600" />
         </div>
 
         <div>
             <label class="block text-sm font-semibold text-accent dark:text-soft mb-3">
                 Email address
             </label>
-            <input type="email" placeholder="Enter your email"
+            <input type="email" name="email" value="{{ old('email') }}" required autocomplete="username" placeholder="Enter your email"
                 class="w-full px-5 py-3 border border-primary/30 rounded-lg bg-soft dark:bg-darkbg text-accent dark:text-soft placeholder-primary/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition text-base">
+            <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-600" />
         </div>
 
         <div>
             <label class="block text-sm font-semibold text-accent dark:text-soft mb-3">
                 Password
             </label>
-            <input type="password" placeholder="Create a password"
+            <input type="password" name="password" required autocomplete="new-password" placeholder="Create a password"
                 class="w-full px-5 py-3 border border-primary/30 rounded-lg bg-soft dark:bg-darkbg text-accent dark:text-soft placeholder-primary/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition text-base">
+            <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-600" />
         </div>
 
         <div>
             <label class="block text-sm font-semibold text-accent dark:text-soft mb-3">
                 Confirm password
             </label>
-            <input type="password" placeholder="Confirm your password"
+            <input type="password" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm your password"
                 class="w-full px-5 py-3 border border-primary/30 rounded-lg bg-soft dark:bg-darkbg text-accent dark:text-soft placeholder-primary/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition text-base">
+            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-red-600" />
         </div>
 
-        <label class="flex items-start gap-3 cursor-pointer">
-            <input type="checkbox" class="w-4 h-4 rounded accent-primary mt-1">
-            <span class="text-sm font-medium text-accent dark:text-soft leading-relaxed">
-                I agree to the
-                <a href="#" class="text-primary hover:text-accent font-semibold transition">Terms of
-                    Service</a>
-                and
-                <a href="#" class="text-primary hover:text-accent font-semibold transition">Privacy
-                    Policy</a>
-            </span>
-        </label>
+        <div>
+            <label class="flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" name="terms" value="1" required class="w-4 h-4 rounded accent-primary mt-1">
+                <span class="text-sm font-medium text-accent dark:text-soft leading-relaxed">
+                    I agree to the
+                    <a href="#" class="text-primary hover:text-accent font-semibold transition">Terms of
+                        Service</a>
+                    and
+                    <a href="#" class="text-primary hover:text-accent font-semibold transition">Privacy
+                        Policy</a>
+                </span>
+            </label>
+            <x-input-error :messages="$errors->get('terms')" class="mt-2 text-red-600" />
+        </div>
 
         <button type="submit"
             class="w-full bg-primary hover:bg-accent text-soft py-3 rounded-lg font-bold transition mt-8 text-base shadow-lg shadow-primary/20 tracking-wide">
@@ -91,7 +99,7 @@
 
     <p class="font-serif text-center mt-8 text-accent dark:text-soft text-lg">
         Already have an account?
-        <a href="/signin" class="font-sans text-primary hover:text-accent font-bold transition">
+        <a href="{{ route('login') }}" class="font-sans text-primary hover:text-accent font-bold transition">
             Sign in
         </a>
     </p>
