@@ -1,38 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{ dark: false }" :class="{ 'dark': dark }">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="{ dark: localStorage.getItem('darkMode') === 'true' }" x-init="$watch('dark', val => localStorage.setItem('darkMode', val))" :class="{ 'dark': dark }">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') - Naway</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('images/naway-fav.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#C08552',
-                        accent: '#8C5A3C',
-                        darkbg: '#4B2E2B',
-                        soft: '#FFF8F0'
-                    },
-                    fontFamily: {
-                        sans: ['Outfit', 'Cairo', 'sans-serif'],
-                        serif: ['Lora', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         * {
             margin: 0;
@@ -40,18 +21,29 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Outfit', 'Cairo', sans-serif;
-        }
+
 
         [x-cloak] {
             display: none !important;
         }
     </style>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        @auth
+            if (!sessionStorage.getItem('themeSynced')) {
+                localStorage.setItem('darkMode', '{{ auth()->user()->theme_mode === 'DARK' ? 'true' : 'false' }}');
+                sessionStorage.setItem('themeSynced', 'true');
+            }
+        @endauth
+        if (localStorage.getItem('darkMode') === 'true' || (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
 
-<body class="bg-soft dark:bg-darkbg text-accent dark:text-soft">
+<body class="bg-soft dark:bg-darkbg text-accent dark:text-soft font-sans antialiased">
 
     <div class="min-h-screen flex flex-col bg-soft dark:bg-darkbg">
 
