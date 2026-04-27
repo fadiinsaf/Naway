@@ -12,31 +12,39 @@
         </p>
     </div>
 
-    <form class="space-y-6">
+    <!-- Session Status -->
+    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+    <form method="POST" action="{{ route('login') }}" class="space-y-6">
+        @csrf
         <div>
             <label class="block text-sm font-semibold text-accent dark:text-soft mb-3">
                 Email address
             </label>
-            <input type="email" placeholder="Enter your email"
+            <input type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username" placeholder="Enter your email"
                 class="w-full px-5 py-3 border border-primary/30 rounded-lg bg-soft dark:bg-darkbg text-accent dark:text-soft placeholder-primary/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition text-base">
+            <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-600" />
         </div>
 
         <div>
             <label class="block text-sm font-semibold text-accent dark:text-soft mb-3">
                 Password
             </label>
-            <input type="password" placeholder="Enter your password"
+            <input type="password" name="password" required autocomplete="current-password" placeholder="Enter your password"
                 class="w-full px-5 py-3 border border-primary/30 rounded-lg bg-soft dark:bg-darkbg text-accent dark:text-soft placeholder-primary/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition text-base">
+            <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-600" />
         </div>
 
         <div class="flex items-center justify-between">
             <label class="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" class="w-4 h-4 rounded accent-primary">
+                <input type="checkbox" name="remember" class="w-4 h-4 rounded accent-primary">
                 <span class="text-sm font-medium text-accent dark:text-soft">Remember for 30 days</span>
             </label>
-            <a href="#" class="text-sm text-primary hover:text-accent transition font-semibold">
-                Forgot password?
-            </a>
+            @if (Route::has('password.request'))
+                <a href="{{ route('password.request') }}" class="text-sm text-primary hover:text-accent transition font-semibold">
+                    Forgot password?
+                </a>
+            @endif
         </div>
 
         <button type="submit"
@@ -73,7 +81,7 @@
 
     <p class="font-serif text-center mt-8 text-accent dark:text-soft text-lg">
         Don't have an account?
-        <a href="/signup" class="font-sans text-primary hover:text-accent font-bold transition">
+        <a href="{{ route('register') }}" class="font-sans text-primary hover:text-accent font-bold transition">
             Sign up
         </a>
     </p>
