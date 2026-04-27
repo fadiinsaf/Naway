@@ -1,6 +1,12 @@
-<nav class="bg-darkbg dark:bg-[#3a2220] border-b border-primary/20">
-    <div class="px-4 flex items-center justify-between">
-        <ul class="flex items-center text-[13px] font-semibold uppercase tracking-wide text-soft/85">
+<nav x-data="{ mobileMenuOpen: false }" class="bg-darkbg dark:bg-[#3a2220] border-b border-primary/20">
+    <div class="px-4 flex items-center justify-between h-14">
+
+        <!-- Mobile Menu Button -->
+        <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden p-2 text-primary dark:text-soft/80 hover:text-accent dark:hover:text-soft transition">
+            <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+
+        <ul class="hidden lg:flex items-center text-[13px] font-semibold uppercase tracking-wide text-soft/85">
             <li>
                 <a href="/home"
                     class="flex items-center justify-center w-11 h-11 hover:bg-primary/25 transition border-r border-primary/20">
@@ -27,50 +33,67 @@
             <li><a href="/social"
                     class="px-4 h-11 flex items-center hover:bg-primary/25 transition border-r border-primary/20">Social</a>
             </li>
-            <li><a href="/about" class="px-4 h-11 flex items-center hover:bg-primary/25 transition">About</a></li>
+            <li><a href="/about" class="px-4 h-11 flex items-center border-r border-primary/20 hover:bg-primary/25 transition">About</a></li>
+            @if(Auth::check() && Auth::user()->role === 'admin')
+            <li><a href="/admin/dashboard"
+                    class="px-4 h-11 flex items-center text-primary dark:text-primary hover:bg-primary/25 transition border-r border-primary/20">
+                    <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                    Admin
+                </a>
+            </li>
+            @endif
         </ul>
 
-        <div class="flex items-center gap-1">
+        <div class="flex items-center gap-2">
             <button
-                class="text-xs px-2.5 py-1 border border-primary/50 text-primary rounded hover:bg-primary hover:text-soft transition font-semibold">
-                EN <i class="fa-solid fa-caret-down"></i>
+                class="hidden md:block text-xs px-3 py-1.5 border border-primary/50 text-primary rounded-md hover:bg-primary hover:text-soft transition font-semibold">
+                EN <i class="fa-solid fa-caret-down ml-1.5"></i>
             </button>
 
-            <button @click="dark = !dark" class="p-2 rounded hover:bg-primary/25 transition text-soft/80 hover:text-soft">
-                <span x-show="!dark"><i class="fa-solid fa-moon"></i></span>
-                <span x-show="dark"><i class="fa-solid fa-sun"></i></span>
+            <button @click="dark = !dark; @auth fetch('{{ route('profile.theme.update') }}', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': document.querySelector('meta[name=\'csrf-token\']').getAttribute('content') }, body: JSON.stringify({ theme_mode: dark ? 'DARK' : 'LIGHT' }) }) @endauth" class="p-2.5 rounded-md hover:bg-primary/20 dark:hover:bg-primary/25 transition text-primary dark:text-soft/80 dark:hover:text-soft">
+                <span x-show="!dark"><i class="fa-solid fa-moon text-base"></i></span>
+                <span x-show="dark"><i class="fa-solid fa-sun text-base"></i></span>
             </button>
 
-            <div x-show="!isLoggedIn" class="flex items-center gap-2 mr-2 ml-2">
+            @guest
+            <div class="flex items-center gap-2 ml-2">
                 <a href="/signin"
-                    class="text-xs px-4 py-1.5 border border-primary/50 text-primary rounded hover:bg-primary/20 transition font-semibold">
+                    class="text-xs px-4 py-1.5 border border-primary/50 text-primary rounded-md hover:bg-primary/20 transition font-semibold">
                     Sign In
                 </a>
                 <a href="/signup"
-                    class="text-xs px-4 py-1.5 bg-primary text-soft rounded hover:bg-accent transition font-semibold">
+                    class="text-xs px-4 py-1.5 bg-primary text-soft rounded-md hover:bg-primary/90 transition font-semibold">
                     Sign Up
                 </a>
             </div>
+            @endguest
 
-            <div x-show="isLoggedIn" class="flex items-center gap-1">
-                <button class="relative p-2 rounded hover:bg-primary/25 transition text-soft/80 hover:text-soft">
-                    <i class="fa-solid fa-bell"></i>
-                    <span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-primary rounded-full"></span>
+            @auth
+            <div class="flex items-center gap-2 ml-2">
+                <button class="relative p-2.5 rounded-md hover:bg-primary/20 dark:hover:bg-primary/25 transition text-primary dark:text-soft/80 dark:hover:text-soft">
+                    <i class="fa-solid fa-bell text-base"></i>
+                    <span class="absolute top-2 right-2 w-1.5 h-1.5 bg-primary rounded-full"></span>
                 </button>
 
-                <div class="relative">
-                    <button @click="profileOpen = !profileOpen" class="flex items-center p-1">
-                        <img src="https://i.pravatar.cc/40" class="w-7 h-7 rounded-full ring-2 ring-primary/50">
-                        <span
-                            class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full border border-darkbg"></span>
+                <div class="relative pl-3" x-data="{ profileOpen: false }">
+                    <button @click="profileOpen = !profileOpen" class="flex items-center p-1 rounded-md hover:bg-primary/20 dark:hover:bg-primary/25 transition">
+                        <img class="w-11 h-11 rounded-full object-cover border border-primary/30 shadow-sm"
+                            src="{{ Auth::check() && Auth::user()->profile_image ? asset('storage/' . Auth::user()->profile_image) : 'https://ui-avatars.com/api/?name=' . (Auth::check() ? urlencode(Auth::user()->name) : 'User') . '&background=6B7280&color=ffffff&size=36' }}"
+                            alt="Profile">
                     </button>
 
                     <div x-show="profileOpen" @click.outside="profileOpen = false"
-                        class="absolute right-0 mt-2 w-48 bg-soft dark:bg-darkbg shadow-lg border border-primary/30 rounded z-50 py-1"
+                        class="absolute right-0 mt-2 w-52 bg-soft dark:bg-darkbg shadow-xl border border-primary/30 rounded-lg z-50 py-2 overflow-hidden"
                         x-transition>
 
-                        <a href="#"
-                            class="flex items-center px-4 py-2 text-accent dark:text-soft hover:bg-primary/20 transition group">
+                        <!-- Profile Header -->
+                        <div class="px-4 py-3 border-b border-primary/20">
+                            <p class="text-xs font-semibold text-accent dark:text-soft uppercase tracking-wide">{{ Auth::user()->name ?? 'Profile' }}</p>
+                            <p class="text-xs text-primary/70 dark:text-soft/60 mt-1">{{ Auth::user()->email ?? '' }}</p>
+                        </div>
+
+                        <a href="{{ route('profile.edit') }}"
+                            class="flex items-center px-4 py-2.5 text-accent dark:text-soft hover:bg-primary/15 dark:hover:bg-primary/20 transition group text-xs">
                             <svg class="w-4 h-4 mr-3 opacity-70 group-hover:opacity-100 transition-opacity" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -83,7 +106,7 @@
                         </a>
 
                         <a href="/messages"
-                            class="flex items-center px-4 py-2 text-accent dark:text-soft hover:bg-primary/20 transition group">
+                            class="flex items-center px-4 py-2.5 text-accent dark:text-soft hover:bg-primary/15 dark:hover:bg-primary/20 transition group text-xs">
                             <svg class="w-4 h-4 mr-3 opacity-70 group-hover:opacity-100 transition-opacity" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -94,7 +117,7 @@
                         </a>
 
                         <a href="/game"
-                            class="flex items-center px-4 py-2 text-accent dark:text-soft hover:bg-primary/20 transition group">
+                            class="flex items-center px-4 py-2.5 text-accent dark:text-soft hover:bg-primary/15 dark:hover:bg-primary/20 transition group text-xs">
                             <svg class="w-4 h-4 mr-3 opacity-70 group-hover:opacity-100 transition-opacity" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -104,21 +127,56 @@
                             Memory Game
                         </a>
 
-                        <hr class="border-primary/30 my-1">
-
-                        <a href="#"
-                            class="flex items-center px-4 py-2 text-red-500 hover:bg-red-100 dark:hover:bg-red-900/40 transition">
-                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        @if(Auth::check() && Auth::user()->role === 'admin')
+                        <a href="/admin/dashboard"
+                            class="flex items-center px-4 py-2.5 text-accent dark:text-soft hover:bg-primary/15 dark:hover:bg-primary/20 transition group text-xs border-t border-primary/20">
+                            <svg class="w-4 h-4 mr-3 opacity-70 group-hover:opacity-100 transition-opacity" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
                                 </path>
                             </svg>
-                            Logout
+                            Admin Dashboard
                         </a>
+                        @endif
+
+                        <hr class="border-primary/20 my-1.5">
+
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit"
+                                class="w-full flex items-center px-4 py-2.5 text-red-600 dark:text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30 transition text-xs">
+                                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                                    </path>
+                                </svg>
+                                Logout
+                            </button>
+                        </form>
 
                     </div>
                 </div>
             </div>
+
+            @endauth
         </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="mobileMenuOpen" x-transition class="lg:hidden border-t border-primary/20 bg-darkbg dark:bg-[#3a2220]">
+        <ul class="flex flex-col text-sm font-semibold uppercase tracking-wide text-soft/85 py-2">
+            <li><a href="/home" class="block px-4 py-3 hover:bg-primary/25 transition">Home</a></li>
+            <li><a href="/artists" class="block px-4 py-3 hover:bg-primary/25 transition">Artists</a></li>
+            <li><a href="/instruments" class="block px-4 py-3 hover:bg-primary/25 transition">Instruments</a></li>
+            <li><a href="/maqams" class="block px-4 py-3 hover:bg-primary/25 transition">Maqams</a></li>
+            <li><a href="/rhythms" class="block px-4 py-3 hover:bg-primary/25 transition">Rhythms</a></li>
+            <li><a href="/genres" class="block px-4 py-3 hover:bg-primary/25 transition">Genres</a></li>
+            <li><a href="/social" class="block px-4 py-3 hover:bg-primary/25 transition">Social</a></li>
+            <li><a href="/about" class="block px-4 py-3 hover:bg-primary/25 transition">About</a></li>
+            @if(Auth::check() && Auth::user()->role === 'admin')
+            <li><a href="/admin/dashboard" class="block px-4 py-3 text-primary hover:bg-primary/25 transition">Admin Dashboard</a></li>
+            @endif
+        </ul>
     </div>
 </nav>
