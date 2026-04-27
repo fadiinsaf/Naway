@@ -10,7 +10,7 @@
             </div>
             <div class="flex gap-2">
                 <select
-                    class="bg-white dark:bg-darkbg border border-primary/20 text-accent dark:text-soft text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 transition">
+                    class="bg-white dark:bg-darkbg border border-primary/20 text-accent dark:text-soft text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 px-6 transition">
                     <option>Last 7 Days</option>
                     <option>Last 30 Days</option>
                     <option>This Year</option>
@@ -36,7 +36,7 @@
                     <div>
                         <div class="text-xs font-bold uppercase tracking-wider opacity-60 mb-1 text-primary">Total Users
                         </div>
-                        <div class="text-3xl font-black text-accent dark:text-soft">12,450</div>
+                        <div class="text-3xl font-black text-accent dark:text-soft">{{ $totalUsers ?? 0 }}</div>
                     </div>
                     <div class="p-2 bg-green-500/10 text-green-500 rounded-lg text-xs font-bold flex items-center gap-1">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,7 +57,7 @@
                     <div>
                         <div class="text-xs font-bold uppercase tracking-wider opacity-60 mb-1 text-primary">Library Items
                         </div>
-                        <div class="text-3xl font-black text-accent dark:text-soft">842</div>
+                        <div class="text-3xl font-black text-accent dark:text-soft">{{ $libraryItems ?? 0 }}</div>
                     </div>
                     <div class="p-2 bg-green-500/10 text-green-500 rounded-lg text-xs font-bold flex items-center gap-1">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,16 +76,16 @@
                 </div>
                 <div class="flex justify-between items-start relative z-10">
                     <div>
-                        <div class="text-xs font-bold uppercase tracking-wider opacity-60 mb-1 text-primary">Audio Plays
+                        <div class="text-xs font-bold uppercase tracking-wider opacity-60 mb-1 text-primary">Total Comments
                         </div>
-                        <div class="text-3xl font-black text-accent dark:text-soft">45.2k</div>
+                        <div class="text-3xl font-black text-accent dark:text-soft">{{ $totalComments ?? 0 }}</div>
                     </div>
-                    <div class="p-2 bg-green-500/10 text-green-500 rounded-lg text-xs font-bold flex items-center gap-1">
+                    <div class="p-2 bg-blue-500/10 text-blue-500 rounded-lg text-xs font-bold flex items-center gap-1">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
                         </svg>
-                        28%
+                        8%
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                     <div>
                         <div class="text-xs font-bold uppercase tracking-wider opacity-60 mb-1 text-primary">Pending Mods
                         </div>
-                        <div class="text-3xl font-black text-accent dark:text-soft">14</div>
+                        <div class="text-3xl font-black text-accent dark:text-soft">{{ $pendingMods ?? 0 }}</div>
                     </div>
                     <div class="p-2 bg-red-500/10 text-red-500 rounded-lg text-xs font-bold flex items-center gap-1">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -161,48 +161,56 @@
             <div class="bg-white dark:bg-black/20 border border-primary/10 rounded-2xl p-6 shadow-sm">
                 <h3 class="text-base font-bold text-accent dark:text-soft mb-6">Content Breakdown</h3>
 
+                @php
+                    $total = max($libraryItems ?? 1, 1); // prevent division by zero if no items exist
+                    $artistPct = round((($totalArtists ?? 0) / $total) * 100);
+                    $instPct = round((($totalInstruments ?? 0) / $total) * 100);
+                    $maqamPct = round((($totalMaqams ?? 0) / $total) * 100);
+                    $rhythmPct = round((($totalRhythms ?? 0) / $total) * 100);
+                @endphp
+                
                 <div class="space-y-6 mt-2">
                     <div>
                         <div class="flex justify-between text-sm font-medium mb-1.5">
                             <span class="text-accent dark:text-soft">Artists</span>
-                            <span class="opacity-70">142</span>
+                            <span class="opacity-70">{{ $totalArtists ?? 0 }}</span>
                         </div>
                         <div class="w-full bg-accent/10 rounded-full h-2.5 overflow-hidden">
                             <div class="bg-primary h-2.5 rounded-full"
-                                :style="loaded ? 'width: 45%; transition: width 1.5s ease;' : 'width: 0%'"></div>
+                                :style="loaded ? 'width: {{ $artistPct }}%; transition: width 1.5s ease;' : 'width: 0%'"></div>
                         </div>
                     </div>
 
                     <div>
                         <div class="flex justify-between text-sm font-medium mb-1.5">
                             <span class="text-accent dark:text-soft">Instruments</span>
-                            <span class="opacity-70">56</span>
+                            <span class="opacity-70">{{ $totalInstruments ?? 0 }}</span>
                         </div>
                         <div class="w-full bg-accent/10 rounded-full h-2.5 overflow-hidden">
                             <div class="bg-primary/80 h-2.5 rounded-full"
-                                :style="loaded ? 'width: 20%; transition: width 1.5s ease 0.2s;' : 'width: 0%'"></div>
+                                :style="loaded ? 'width: {{ $instPct }}%; transition: width 1.5s ease 0.2s;' : 'width: 0%'"></div>
                         </div>
                     </div>
 
                     <div>
                         <div class="flex justify-between text-sm font-medium mb-1.5">
                             <span class="text-accent dark:text-soft">Maqams</span>
-                            <span class="opacity-70">48</span>
+                            <span class="opacity-70">{{ $totalMaqams ?? 0 }}</span>
                         </div>
                         <div class="w-full bg-accent/10 rounded-full h-2.5 overflow-hidden">
                             <div class="bg-primary/60 h-2.5 rounded-full"
-                                :style="loaded ? 'width: 15%; transition: width 1.5s ease 0.4s;' : 'width: 0%'"></div>
+                                :style="loaded ? 'width: {{ $maqamPct }}%; transition: width 1.5s ease 0.4s;' : 'width: 0%'"></div>
                         </div>
                     </div>
 
                     <div>
                         <div class="flex justify-between text-sm font-medium mb-1.5">
                             <span class="text-accent dark:text-soft">Rhythms (Iqa'at)</span>
-                            <span class="opacity-70">32</span>
+                            <span class="opacity-70">{{ $totalRhythms ?? 0 }}</span>
                         </div>
                         <div class="w-full bg-accent/10 rounded-full h-2.5 overflow-hidden">
                             <div class="bg-primary/40 h-2.5 rounded-full"
-                                :style="loaded ? 'width: 10%; transition: width 1.5s ease 0.6s;' : 'width: 0%'"></div>
+                                :style="loaded ? 'width: {{ $rhythmPct }}%; transition: width 1.5s ease 0.6s;' : 'width: 0%'"></div>
                         </div>
                     </div>
                 </div>
