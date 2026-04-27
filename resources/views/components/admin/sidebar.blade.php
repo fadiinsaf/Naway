@@ -50,10 +50,37 @@
                     </a>
                 </nav>
             </div>
+
+            <div>
+                <div class="text-[10px] font-bold text-primary uppercase tracking-widest mb-2 px-3">Member View</div>
+                <nav class="space-y-1">
+                    <a href="/home" class="flex items-center gap-3 px-3 py-2 text-accent dark:text-soft hover:bg-primary/20 hover:text-primary rounded-lg transition">
+                        <span class="font-medium text-sm">Home</span>
+                    </a>
+                    <a href="/artists" class="flex items-center gap-3 px-3 py-2 text-accent dark:text-soft hover:bg-primary/20 hover:text-primary rounded-lg transition">
+                        <span class="font-medium text-sm">Artists</span>
+                    </a>
+                    <a href="/instruments" class="flex items-center gap-3 px-3 py-2 text-accent dark:text-soft hover:bg-primary/20 hover:text-primary rounded-lg transition">
+                        <span class="font-medium text-sm">Instruments</span>
+                    </a>
+                    <a href="/maqams" class="flex items-center gap-3 px-3 py-2 text-accent dark:text-soft hover:bg-primary/20 hover:text-primary rounded-lg transition">
+                        <span class="font-medium text-sm">Maqams</span>
+                    </a>
+                    <a href="/rhythms" class="flex items-center gap-3 px-3 py-2 text-accent dark:text-soft hover:bg-primary/20 hover:text-primary rounded-lg transition">
+                        <span class="font-medium text-sm">Rhythms</span>
+                    </a>
+                    <a href="/genres" class="flex items-center gap-3 px-3 py-2 text-accent dark:text-soft hover:bg-primary/20 hover:text-primary rounded-lg transition">
+                        <span class="font-medium text-sm">Genres</span>
+                    </a>
+                    <a href="/social" class="flex items-center gap-3 px-3 py-2 text-accent dark:text-soft hover:bg-primary/20 hover:text-primary rounded-lg transition">
+                        <span class="font-medium text-sm">Social</span>
+                    </a>
+                </nav>
+            </div>
         </div>
 
         <div class="mt-8 pt-6 border-t border-primary/20">
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="w-full flex items-center gap-3 px-3 py-2 text-red-500 hover:bg-red-500 hover:text-white rounded-lg transition">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>

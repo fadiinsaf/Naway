@@ -1,6 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+    @if (session('welcome_popup'))
+        <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000)"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 transform translate-y-4"
+             x-transition:enter-end="opacity-100 transform translate-y-0"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 transform translate-y-0"
+             x-transition:leave-end="opacity-0 transform translate-y-4"
+             class="fixed bottom-6 right-6 bg-primary text-soft px-6 py-4 rounded-xl shadow-2xl z-50 flex items-center gap-3 border border-primary/30">
+            <svg class="w-6 h-6 text-soft" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="font-semibold text-sm">Welcome to Naway! Enjoy our special features.</div>
+            <button @click="show = false" class="ml-4 opacity-70 hover:opacity-100 transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+        </div>
+    @endif
+
     <div class="space-y-24 pb-12 overflow-hidden">
 
         <div class="relative pt-12 lg:pt-24 max-w-7xl mx-auto px-4">
@@ -49,7 +64,7 @@
                 </div>
 
                 <a href="https://badr-rami.com/en/home/"
-                    class="relative w-full h-[500px] lg:h-[700px] rounded-[2.5rem] overflow-hidden shadow-2xl group border border-primary/20">
+                    class="relative block w-full h-[400px] md:h-[500px] lg:h-[700px] rounded-[2.5rem] overflow-hidden shadow-2xl group border border-primary/20">
                     <div class="absolute -inset-4 bg-gradient-to-tr from-primary/30 to-accent/30 blur-3xl opacity-40 z-0">
 
                     </div>
@@ -61,7 +76,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-darkbg/90 via-darkbg/10 to-transparent z-20"></div>
 
                     <div
-                        class="absolute bottom-8 left-8 lg:bottom-12 lg:left-12 z-30 bg-black/40 backdrop-blur-xl border border-white/10 pl-5 pr-8 py-4 rounded-2xl shadow-2xl transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-out flex items-center gap-4">
+                        class="absolute bottom-8 left-8 md:bottom-12 md:left-12 z-30 bg-black/40 backdrop-blur-xl border border-white/10 pl-5 pr-8 py-4 rounded-2xl shadow-2xl transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-out flex items-center gap-4">
                         <div class="w-1 h-12 bg-primary rounded-full shadow-[0_0_10px_rgba(192,133,82,0.5)]"></div>
                         <div>
                             <p class="text-soft font-semibold text-2xl tracking-tight drop-shadow-md leading-none">Badr Rami
@@ -74,7 +89,7 @@
 
             </div>
 
-            <div class="mt-16 lg:mt-24 pt-8 border-t border-accent/10 w-full flex flex-wrap justify-center gap-8 md:gap-16">
+            <div class="mt-16 md:mt-24 pt-8 border-t border-accent/10 w-full flex flex-wrap justify-center gap-8 md:gap-16">
                 <div class="flex flex-col items-center">
                     <span class="text-3xl font-black text-accent dark:text-soft">45+</span>
                     <span class="text-xs font-bold text-primary uppercase tracking-widest mt-1">Maqams</span>
@@ -96,7 +111,7 @@
                     need</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px]">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[280px]">
 
                 <div
                     class="md:col-span-2 bg-primary/5 dark:bg-accent/5 border border-primary/20 rounded-3xl p-8 relative overflow-hidden group hover:border-primary/40 transition">
@@ -210,7 +225,7 @@
                                 Play Memory Game
                             </a>
                         @else
-                            <a href="/register"
+                            <a href="/signup"
                                 class="px-8 py-4 bg-soft text-primary font-bold rounded-2xl hover:bg-white transition transform hover:-translate-y-1 shadow-lg text-lg">
                                 Create Free Account
                             </a>

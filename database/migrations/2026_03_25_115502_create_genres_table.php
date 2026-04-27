@@ -11,6 +11,9 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->text('cover_image')->nullable();
+            $table->text('legendary_artists');
+            $table->text('characteristics');
             $table->text('examples')->nullable();
             $table->string('examples_audio_url')->nullable();
             $table->boolean('is_published')->default(true);

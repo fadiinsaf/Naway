@@ -16,10 +16,16 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('role')->default('member');
-            $table->string('preferred_language')->default('AR');
-            $table->string('theme_mode')->default('LIGHT');
+            $table->string("speciality", 50)->nullable();
+            $table->string('profile_image')->nullable();
+            $table->enum('role', ['admin', 'member']);
+            $table->string('preferred_language')->default('EN');
+            $table->enum('theme_mode', ['LIGHT', 'DARK'])->default('LIGHT');
             $table->string('status')->default('ACTIVE');
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->boolean('is_profile_completed')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
 

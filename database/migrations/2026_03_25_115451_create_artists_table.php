@@ -10,8 +10,16 @@ return new class extends Migration {
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('nationality');
+            $table->string('city');
             $table->text('biography')->nullable();
+            $table->text('audio_examples')->nullable();
             $table->string('image')->nullable();
+            $table->string('films')->nullable();
+            $table->integer('songs')->nullable();
+            $table->integer('years_active')->nullable();
+            $table->date("birth_day");
+            $table->date("date_of_death")->nullable();
             $table->boolean('is_published')->default(true);
             $table->timestamps();
         });
