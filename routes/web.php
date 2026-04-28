@@ -17,7 +17,7 @@ use App\Models\Rhythm;
 use App\Models\Comment;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
-// Public Routes
+
 Route::get('/', function () { return view('home'); });
 Route::get('/home', function () { return view('home'); });
 Route::get('/about', function () { return view('about'); });
@@ -44,7 +44,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/profile/theme', [ProfileController::class, 'updateTheme'])->name('profile.theme.update');
 
-    // Interactions
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::put('/comments/{comment}', [CommentController::class, 'userUpdate'])->name('comments.userUpdate');
     Route::delete('/comments/{comment}', [CommentController::class, 'userDestroy'])->name('comments.userDestroy');

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- Game Container managed by Alpine.js for UI simulation --}}
+    
     <div class="max-w-3xl mx-auto py-8" x-data="{
                     isPlaying: false,
                     hasGuessed: false,
@@ -37,17 +37,14 @@
                 <div class="w-24 h-24 mx-auto bg-primary/10 rounded-full flex items-center justify-center border-4 border-primary/20 mb-4 transition duration-300"
                     :class="isPlaying ? 'animate-pulse border-primary' : ''">
 
-                    {{-- Play/Replay Button --}}
                     <button @click="isPlaying = true; setTimeout(() => isPlaying = false, 2000)"
                         class="w-16 h-16 bg-primary text-soft rounded-full flex items-center justify-center hover:bg-accent hover:scale-105 transition shadow-md">
 
-                        {{-- Fixed: Clean Solid Play Triangle --}}
                         <svg x-show="!isPlaying" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 ml-1" viewBox="0 0 24 24"
                             fill="currentColor">
                             <path d="M8 5v14l11-7z" />
                         </svg>
 
-                        {{-- Playing State (Music Note) --}}
                         <svg x-show="isPlaying" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"

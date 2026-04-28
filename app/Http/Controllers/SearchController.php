@@ -20,7 +20,6 @@ class SearchController extends Controller
 
         $results = [];
 
-        // Search Users
         $users = \App\Models\User::whereRaw('LOWER(name) LIKE ?', [strtolower($q) . '%'])->limit(3)->get();
         foreach ($users as $user) {
             $results[] = [
@@ -31,7 +30,6 @@ class SearchController extends Controller
             ];
         }
 
-        // Search Artists
         $artists = Artist::where('is_published', true)->whereRaw('LOWER(name) LIKE ?', [strtolower($q) . '%'])->limit(3)->get();
         foreach ($artists as $artist) {
             $results[] = [
@@ -42,7 +40,6 @@ class SearchController extends Controller
             ];
         }
 
-        // Search Instruments
         $instruments = Instrument::where('is_published', true)->whereRaw('LOWER(name) LIKE ?', [strtolower($q) . '%'])->limit(3)->get();
         foreach ($instruments as $instrument) {
             $results[] = [
@@ -53,7 +50,6 @@ class SearchController extends Controller
             ];
         }
 
-        // Search Maqams
         $maqams = Maqam::where('is_published', true)->whereRaw('LOWER(name) LIKE ?', [strtolower($q) . '%'])->limit(3)->get();
         foreach ($maqams as $maqam) {
             $results[] = [
@@ -64,7 +60,6 @@ class SearchController extends Controller
             ];
         }
 
-        // Search Rhythms
         $rhythms = Rhythm::where('is_published', true)->whereRaw('LOWER(name) LIKE ?', [strtolower($q) . '%'])->limit(3)->get();
         foreach ($rhythms as $rhythm) {
             $results[] = [
@@ -75,7 +70,6 @@ class SearchController extends Controller
             ];
         }
 
-        // Search Genres
         $genres = Genre::where('is_published', true)->whereRaw('LOWER(name) LIKE ?', [strtolower($q) . '%'])->limit(3)->get();
         foreach ($genres as $genre) {
             $results[] = [

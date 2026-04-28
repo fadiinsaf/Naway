@@ -13,7 +13,6 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <script>
@@ -42,12 +41,10 @@
 
 <body class="flex flex-col min-h-screen bg-soft dark:bg-darkbg text-accent dark:text-soft antialiased font-sans">
 
-
     @include('components.header')
 
     @include('components.navigation')
 
-    <!-- Page Heading (For Breeze) -->
     @isset($header)
         <header class="bg-soft dark:bg-darkbg shadow">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

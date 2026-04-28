@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 use App\Models\Maqam;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Maqam>
- */
 class MaqamFactory extends Factory
 {
     protected $model = Maqam::class;

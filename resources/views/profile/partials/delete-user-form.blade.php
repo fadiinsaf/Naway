@@ -13,7 +13,6 @@
         {{ __('Delete Account') }}
     </button>
 
-    <!-- Modal -->
     <div x-show="confirmingUserDeletion" x-cloak class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" x-transition.opacity>
         <div @click.away="confirmingUserDeletion = false" class="bg-soft dark:bg-darkbg rounded-2xl border border-red-500/30 p-6 max-w-lg w-full mx-4 shadow-2xl relative" x-transition.scale.90>
             <form method="post" action="{{ $destroyRoute ?? route('profile.destroy') }}" class="p-6">

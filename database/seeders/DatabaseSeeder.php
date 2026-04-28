@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        // 1. Create Users
+
         $admin = User::factory()->create([
             'name' => 'Admin User',
             'email' => 'admin@naway.com',
@@ -32,18 +32,12 @@ class DatabaseSeeder extends Seeder
 
         $users = User::factory(10)->create();
 
-        // 2. Create Content & Genres
         $genres = Genre::factory(10)->create();
         $artists = Artist::factory(30)->create();
         $instruments = Instrument::factory(20)->create();
         $rhythms = Rhythm::factory(10)->create();
         $maqams = Maqam::factory(20)->create();
 
-        // Attach Genres to Content
-
-        // Attachments removed since pivot tables seem to be deleted
-
-        // 3. Create Game Sessions and Rounds
         foreach ($users->random(5) as $user) {
             $sessions = GameSession::factory(2)->create(['user_id' => $user->id]);
             foreach ($sessions as $session) {
@@ -54,7 +48,6 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        // 4. Create Comments and Likes
         foreach ($artists as $artist) {
             $comments = Comment::factory(3)->create([
                 'user_id' => $users->random()->id,
@@ -73,7 +66,6 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        // 5. Create Conversations and Messages
         for ($i = 0; $i < 3; $i++) {
             $userOne = $users->random();
             $userTwo = $users->where('id', '!=', $userOne->id)->random();

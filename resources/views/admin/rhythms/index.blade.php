@@ -82,7 +82,6 @@
             </table>
         </div>
 
-        <!-- Create Modal -->
         <div x-show="createModalOpen" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm" x-transition.opacity>
             <div @click.away="createModalOpen = false" class="bg-soft dark:bg-darkbg rounded-2xl border border-primary/30 p-6 max-w-lg w-full mx-4 shadow-2xl relative" x-transition.scale.90>
                 <h3 class="text-xl font-bold text-accent dark:text-soft mb-6">Add Rhythm</h3>
@@ -114,7 +113,6 @@
             </div>
         </div>
 
-        <!-- Edit Modal -->
         <div x-show="editModalOpen" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm" x-transition.opacity>
             <div @click.away="editModalOpen = false" class="bg-soft dark:bg-darkbg rounded-2xl border border-primary/30 p-6 max-w-lg w-full mx-4 shadow-2xl relative" x-transition.scale.90>
                 <h3 class="text-xl font-bold text-accent dark:text-soft mb-6">Edit Rhythm</h3>
@@ -147,7 +145,6 @@
             </div>
         </div>
 
-        <!-- Delete Modal -->
         <div x-show="deleteModalOpen" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm" x-transition.opacity>
             <div @click.away="deleteModalOpen = false" class="bg-soft dark:bg-darkbg rounded-2xl border border-red-500/30 p-6 max-w-md w-full mx-4 shadow-2xl relative" x-transition.scale.90>
                 <h3 class="text-xl font-bold text-red-600 dark:text-red-400 mb-2">Delete Rhythm</h3>
@@ -163,7 +160,6 @@
             </div>
         </div>
 
-        <!-- Description Modal -->
         <div x-show="descModalOpen" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm" x-transition.opacity>
             <div @click.away="descModalOpen = false" class="bg-soft dark:bg-darkbg rounded-2xl border border-primary/30 p-6 max-w-2xl w-full mx-4 shadow-2xl relative" x-transition.scale.90>
                 <button @click="descModalOpen = false" class="absolute top-4 right-4 text-primary hover:text-accent transition">

@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 use App\Models\Rhythm;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Rhythm>
- */
 class RhythmFactory extends Factory
 {
     protected $model = Rhythm::class;

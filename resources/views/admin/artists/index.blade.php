@@ -111,8 +111,6 @@
             </table>
         </div>
 
-
-        <!-- Create Modal -->
         <div x-show="createModalOpen" x-cloak
             class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm"
             x-transition.opacity>
@@ -124,14 +122,12 @@
                     @csrf
                     <div class="space-y-4 max-h-[70vh] overflow-y-auto pr-1">
 
-                        {{-- Name --}}
                         <div>
                             <label class="block text-sm font-medium mb-1">Name <span class="text-red-500">*</span></label>
                             <input type="text" name="name" placeholder="Artist Name" required
                                 class="w-full bg-white dark:bg-black/20 border border-primary/30 rounded-xl p-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-accent dark:text-soft">
                         </div>
 
-                        {{-- Nationality & City --}}
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <label class="block text-sm font-medium mb-1">Nationality <span
@@ -147,7 +143,6 @@
                             </div>
                         </div>
 
-                        {{-- Birthday & Date of Death --}}
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <label class="block text-sm font-medium mb-1">Birthday <span
@@ -162,7 +157,6 @@
                             </div>
                         </div>
 
-                        {{-- Years Active & Songs --}}
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <label class="block text-sm font-medium mb-1">Years Active <span class="text-red-500">*</span></label>
@@ -176,27 +170,24 @@
                             </div>
                         </div>
 
-                        {{-- Films --}}
                         <div>
                             <label class="block text-sm font-medium mb-1">Films <span class="text-red-500">*</span></label>
                             <input required type="number" name="films" placeholder="e.g. 4"  min="0"
                                 class="w-full bg-white dark:bg-black/20 border border-primary/30 rounded-xl p-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-accent dark:text-soft">
                         </div>
-                                                {{-- Biography --}}
+                                                
                         <div>
                             <label class="block text-sm font-medium mb-1">Biography <span class="text-red-500">*</span></label>
                             <textarea required name="biography" rows="3" placeholder="Artist Biography"
                                 class="w-full bg-white dark:bg-black/20 border border-primary/30 rounded-xl p-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-accent dark:text-soft"></textarea>
                         </div>
 
-                        {{-- Image --}}
                         <div>
                             <label class="block text-sm font-medium mb-1">Image Upload <span class="text-red-500">*</span></label>
                             <input required type="file" name="image" accept="image/*"
                                 class="w-full bg-white dark:bg-black/20 border border-primary/30 rounded-xl p-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-accent dark:text-soft">
                         </div>
 
-                        {{-- Audio Examples --}}
                         <div>
                             <label class="block text-sm font-medium mb-1">Audio Examples (Max 3 files) <span class="text-red-500">*</span></label>
                             <input required type="file" name="audio_examples[]" accept="audio/*" multiple
@@ -215,7 +206,6 @@
             </div>
         </div>
 
-        <!-- Edit Modal -->
         <div x-show="editModalOpen" x-cloak
             class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm"
             x-transition.opacity>
@@ -229,14 +219,12 @@
                     @method('PUT')
                     <div class="space-y-4 max-h-[70vh] overflow-y-auto pr-1">
 
-                        {{-- Name --}}
                         <div>
                             <label class="block text-sm font-medium mb-1">Name <span class="text-red-500">*</span></label>
                             <input type="text" name="name" x-model="currentItem.name" required
                                 class="w-full bg-white dark:bg-black/20 border border-primary/30 rounded-xl p-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-accent dark:text-soft">
                         </div>
 
-                        {{-- Nationality & City --}}
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <label class="block text-sm font-medium mb-1">Nationality <span
@@ -254,7 +242,6 @@
                             </div>
                         </div>
 
-                        {{-- Birthday & Date of Death --}}
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <label class="block text-sm font-medium mb-1">Birthday <span
@@ -268,7 +255,7 @@
                                     class="w-full bg-white dark:bg-black/20 border border-primary/30 rounded-xl p-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-accent dark:text-soft">
                             </div>
                         </div>
-                        {{-- Years Active & Songs --}}
+                        
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <label class="block text-sm font-medium mb-1">Years Active <span class="text-red-500">*</span></label>
@@ -282,20 +269,18 @@
                             </div>
                         </div>
 
-                        {{-- Films --}}
                         <div>
                             <label class="block text-sm font-medium mb-1">Films <span class="text-red-500">*</span></label>
                             <input required type="number" name="films" x-model="currentItem.films" placeholder="e.g. 4"  min="0"
                                 class="w-full bg-white dark:bg-black/20 border border-primary/30 rounded-xl p-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-accent dark:text-soft">
                         </div>
-                        {{-- Biography --}}
+                        
                         <div>
                             <label class="block text-sm font-medium mb-1">Biography <span class="text-red-500">*</span></label>
                             <textarea required name="biography" x-model="currentItem.biography" rows="3"
                                 class="w-full bg-white dark:bg-black/20 border border-primary/30 rounded-xl p-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-accent dark:text-soft"></textarea>
                         </div>
 
-                        {{-- Image --}}
                         <div>
                             <label class="block text-sm font-medium mb-1">Image Upload <span
                                     class="opacity-50 font-normal">(leave empty to keep current)</span></label>
@@ -307,7 +292,6 @@
                             </div>
                         </div>
 
-                        {{-- Audio Examples --}}
                         <div>
                             <label class="block text-sm font-medium mb-1">Audio Examples (Max 3 files) <span
                                     class="opacity-50 font-normal">(leave empty to keep current)</span></label>
@@ -326,7 +310,6 @@
             </div>
         </div>
 
-        <!-- Delete Modal -->
         <div x-show="deleteModalOpen" x-cloak
             class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm"
             x-transition.opacity>
@@ -350,7 +333,6 @@
             </div>
         </div>
 
-        <!-- Biography Modal -->
         <div x-show="bioModalOpen" x-cloak
             class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm"
             x-transition.opacity>

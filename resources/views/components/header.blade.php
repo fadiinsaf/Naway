@@ -12,7 +12,6 @@
             </div>
         </a>
 
-        <!-- Desktop Search Bar -->
         <div class="hidden sm:block flex-1 max-w-sm relative" x-data="searchComponent()" @click.outside="query = ''">
             <div class="flex items-center border border-primary/100 dark:border-white rounded bg-soft dark:bg-darkbg overflow-hidden focus-within:border-primary transition">
                 <input type="text" placeholder="Search…" x-model="query" @input.debounce.300ms="performSearch"
@@ -25,8 +24,7 @@
                     </svg>
                 </button>
             </div>
-            
-            <!-- Desktop Results Dropdown -->
+
             <div x-show="query.length >= 1" style="display: none;" class="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-[#1a1a1a] border border-primary/30 rounded-xl shadow-xl z-50 max-h-96 overflow-y-auto">
                 <template x-if="loading">
                     <div class="p-4 text-center text-sm opacity-50"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Searching...</div>
@@ -58,7 +56,6 @@
             </div>
         </div>
 
-        <!-- Mobile Search Button -->
         <div class="sm:hidden flex items-center">
             <button @click="searchModalOpen = true" class="p-2 text-primary hover:bg-primary/10 rounded-full transition dark:text-soft">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
@@ -70,7 +67,6 @@
         </div>
     </div>
 
-    <!-- Mobile Search Modal -->
     <div x-show="searchModalOpen" style="display: none;" class="absolute inset-x-0 top-full mt-1 p-4 bg-soft dark:bg-darkbg border-b border-primary/30 z-50 shadow-lg sm:hidden"
         x-transition:enter="transition ease-out duration-200"
         x-transition:enter-start="opacity-0 -translate-y-4"
@@ -92,8 +88,7 @@
                 </svg>
             </button>
         </div>
-        
-        <!-- Mobile Results Dropdown -->
+
         <div x-show="query.length >= 1" style="display: none;" class="mt-2 bg-white dark:bg-[#1a1a1a] border border-primary/30 rounded-xl shadow-xl max-h-64 overflow-y-auto w-full">
             <template x-if="loading">
                 <div class="p-4 text-center text-sm opacity-50"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Searching...</div>

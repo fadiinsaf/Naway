@@ -7,26 +7,18 @@ use Illuminate\Http\Request;
 
 class ArtistController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
         $artists = Artist::all();
         return view('admin.artists.index', compact('artists'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
  public function store(Request $request)
     {
         
@@ -71,25 +63,16 @@ class ArtistController extends Controller
         return redirect()->back()->with('success', 'Artist created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Artist $artist)
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Artist $artist)
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Artist $artist)
     {
         $rules = [
@@ -135,9 +118,6 @@ class ArtistController extends Controller
         return redirect()->back()->with('success', 'Artist updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Artist $artist)
     {
         $artist->delete();
