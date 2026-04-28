@@ -12,7 +12,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         * {
@@ -20,8 +19,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-
 
         [x-cloak] {
             display: none !important;

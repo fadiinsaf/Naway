@@ -1,7 +1,6 @@
 <nav x-data="{ mobileMenuOpen: false }" class="bg-darkbg dark:bg-[#3a2220] border-b border-primary/20">
     <div class="px-4 flex items-center justify-between h-14">
 
-        <!-- Mobile Menu Button -->
         <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden p-2 text-primary dark:text-soft/80 hover:text-accent dark:hover:text-soft transition">
             <i class="fa-solid fa-bars text-xl"></i>
         </button>
@@ -86,7 +85,6 @@
                         class="absolute right-0 mt-2 w-52 bg-soft dark:bg-darkbg shadow-xl border border-primary/30 rounded-lg z-50 py-2 overflow-hidden"
                         x-transition>
 
-                        <!-- Profile Header -->
                         <div class="px-4 py-3 border-b border-primary/20">
                             <p class="text-xs font-semibold text-accent dark:text-soft uppercase tracking-wide">{{ Auth::user()->name ?? 'Profile' }}</p>
                             <p class="text-xs text-primary/70 dark:text-soft/60 mt-1">{{ Auth::user()->email ?? '' }}</p>
@@ -163,7 +161,6 @@
         </div>
     </div>
 
-    <!-- Mobile Menu -->
     <div x-show="mobileMenuOpen" x-transition class="lg:hidden border-t border-primary/20 bg-darkbg dark:bg-[#3a2220]">
         <ul class="flex flex-col text-sm font-semibold uppercase tracking-wide text-soft/85 py-2">
             <li><a href="/home" class="block px-4 py-3 hover:bg-primary/25 transition">Home</a></li>

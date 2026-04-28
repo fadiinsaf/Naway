@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 use App\Models\Instrument;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Instrument>
- */
 class InstrumentFactory extends Factory
 {
     protected $model = Instrument::class;

@@ -11,17 +11,12 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
-    /**
-     * Display the login view.
-     */
+    
     public function create(): View
     {
         return view('auth.signin');
     }
 
-    /**
-     * Handle an incoming authentication request.
-     */
     public function store(LoginRequest $request): RedirectResponse
     {
         $user = \App\Models\User::withTrashed()->where('email', $request->email)->first();
@@ -45,9 +40,6 @@ class AuthenticatedSessionController extends Controller
         : redirect()->intended('/admin/dashboard')->with('welcome_popup', true)->with('auth_theme', $request->user()->theme_mode);
     }
 
-    /**
-     * Destroy an authenticated session.
-     */
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();

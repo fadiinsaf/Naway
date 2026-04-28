@@ -8,9 +8,6 @@ use App\Models\Like;
 use App\Models\User;
 use App\Models\Comment;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Like>
- */
 class LikeFactory extends Factory
 {
     protected $model = Like::class;

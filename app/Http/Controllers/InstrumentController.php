@@ -7,26 +7,18 @@ use Illuminate\Http\Request;
 
 class InstrumentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
         $instruments = Instrument::all();
         return view('admin.instruments.index', compact('instruments'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
 public function store(Request $request)
 {
     $validated = $request->validate([
@@ -46,25 +38,16 @@ public function store(Request $request)
     return redirect()->back()->with('success', 'Instrument created successfully.');
 }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Instrument $instrument)
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Instrument $instrument)
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
 public function update(Request $request, Instrument $instrument)
 {
     $validated = $request->validate([
@@ -86,9 +69,6 @@ public function update(Request $request, Instrument $instrument)
     return redirect()->back()->with('success', 'Instrument updated successfully.');
 }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Instrument $instrument)
     {
         $instrument->delete();

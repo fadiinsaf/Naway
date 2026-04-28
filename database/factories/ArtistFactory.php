@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 use App\Models\Artist;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Artist>
- */
 class ArtistFactory extends Factory
 {
     protected $model = Artist::class;

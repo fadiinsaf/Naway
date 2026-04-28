@@ -8,18 +8,10 @@ use App\Models\GameRound;
 use App\Models\GameSession;
 use App\Models\Maqam;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\GameRound>
- */
 class GameRoundFactory extends Factory
 {
     protected $model = GameRound::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [

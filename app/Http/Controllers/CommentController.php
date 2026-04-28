@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
         $comments = Comment::withTrashed()->with('user')->get();
@@ -70,9 +68,6 @@ class CommentController extends Controller
         return redirect()->back()->with('success', 'Your comment has been deleted.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Comment $comment)
     {
         $comment->delete();

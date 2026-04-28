@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Scripts -->
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
 
@@ -74,10 +73,8 @@
 
     <div class="flex-1 flex overflow-hidden min-h-0 relative">
 
-        <!-- Mobile Sidebar Overlay -->
         <div x-show="sidebarOpen" x-transition.opacity class="fixed inset-0 bg-black/50 z-40 md:hidden" @click="sidebarOpen = false" style="display: none;"></div>
 
-        <!-- Sidebar -->
         <div :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
              class="fixed inset-y-0 left-0 z-50 w-80 bg-darkbg dark:bg-[#3a2220] border-r border-primary/20 flex flex-col shrink-0 transition-transform duration-300 md:relative md:translate-x-0">
             <div class="p-6 bg-primary/80 text-soft font-bold text-lg shrink-0 flex justify-between items-center">
@@ -91,9 +88,8 @@
             </div>
         </div>
 
-        <!-- Main Content -->
         <div class="flex-1 overflow-y-auto content-scroll min-h-0 bg-soft dark:bg-darkbg relative w-full">
-            <!-- Mobile Toggle Button -->
+            
             <div class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-40">
                 <button @click="sidebarOpen = true" class="flex items-center gap-2 px-6 py-3 bg-primary text-soft rounded-full shadow-lg shadow-primary/40 hover:bg-accent transition-transform hover:scale-105 active:scale-95 font-semibold text-sm">
                     <i class="fa-solid fa-bars"></i>

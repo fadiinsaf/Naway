@@ -7,26 +7,18 @@ use Illuminate\Http\Request;
 
 class RhythmController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
         $rhythms = Rhythm::all();
         return view('admin.rhythms.index', compact('rhythms'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -50,25 +42,16 @@ class RhythmController extends Controller
         return redirect()->back()->with('success', 'Rhythm created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Rhythm $rhythm)
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Rhythm $rhythm)
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Rhythm $rhythm)
     {
         $validated = $request->validate([
@@ -96,9 +79,6 @@ class RhythmController extends Controller
         return redirect()->back()->with('success', 'Rhythm updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Rhythm $rhythm)
     {
         $rhythm->delete();
